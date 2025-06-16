@@ -5,8 +5,6 @@ import TaskRow from "../components/TaskRow";
 export default function TaskList() {
   const { tasks } = useContext(GlobalContext);
 
-  console.log(tasks);
-
   return (
     <main className="task-page">
       <h1>Lista delle task</h1>
