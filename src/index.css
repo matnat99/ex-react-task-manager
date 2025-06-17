@@ -176,3 +176,50 @@ td.done {
 .add-task-page button:hover {
   background-color: #0056b3;
 }
+
+/* TASK DETAIL PAGE */
+.task-detail-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 3.125rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-detail-page h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.task-detail-page p {
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+  color: #333;
+  width: 100%;
+}
+
+.task-detail-page strong {
+  font-weight: bold;
+  margin-right: 0.3rem;
+}
+
+.task-detail-page button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  background-color: #dc3545;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-detail-page button:hover {
+  background-color: #b02a37;
+}
