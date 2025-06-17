@@ -41,7 +41,7 @@ export default function AddTask() {
 
   return (
     <main className="add-task-page">
-      <h1>Aggiungi una task</h1>
+      <h1>Aggiungi un task</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Nome task:

@@ -7,7 +7,7 @@ export default function TaskList() {
 
   return (
     <main className="task-page">
-      <h1>Lista delle task</h1>
+      <h1>Lista dei task</h1>
       <table>
         <thead>
           <tr>

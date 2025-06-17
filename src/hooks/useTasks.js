@@ -22,7 +22,8 @@ export default function useTasks() {
     setTasks((prev) => [...prev, task]);
   };
 
-  const removeTasks = (taskId) => {};
+  const removeTasks = async (taskId) => {};
+
   const updateTask = (updatedTask) => {};
 
   return { tasks, addTask, removeTasks, updateTask };
