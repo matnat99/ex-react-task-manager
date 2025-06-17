@@ -2,12 +2,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import Modal from "../components/Modal";
+import EditTaskModal from "../components/EditTaskModal";
 
 export default function TaskDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { tasks, removeTask } = useContext(GlobalContext);
+  const { tasks, removeTask, updateTask } = useContext(GlobalContext);
+
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const task = tasks.find((task) => task.id === parseInt(id));
 
@@ -20,6 +23,16 @@ export default function TaskDetail() {
       await removeTask(task.id);
       alert("Task eliminata con successo");
       navigate("/");
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  };
+
+  const handleUpdate = async (updatedTask) => {
+    try {
+      await updateTask(updatedTask);
+      setShowEditModal(false);
     } catch (error) {
       console.error(error);
       alert(error.message);
@@ -42,7 +55,23 @@ export default function TaskDetail() {
         <strong>Data di creazione:</strong>{" "}
         {new Date(task.createdAt).toLocaleDateString()}
       </p>
-      <button onClick={() => setShowDeleteModal(true)}>Elimina task</button>
+      <div className="task-buttons">
+        <button className="edit-button" onClick={() => setShowEditModal(true)}>
+          Modidica task
+        </button>
+        <button
+          className="delete-button"
+          onClick={() => setShowDeleteModal(true)}
+        >
+          Elimina task
+        </button>
+      </div>
+      <EditTaskModal
+        task={task}
+        show={showEditModal}
+        onClose={() => setShowEditModal(false)}
+        onConfirm={handleUpdate}
+      />
       <Modal
         title={"Conferma eliminazione"}
         content={<p>Conferma l'eliminazione della task o annulla</p>}
